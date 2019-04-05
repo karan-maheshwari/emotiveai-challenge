@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<style>
+.flex-container {
+    display: flex;
+}
+.flex-container > div {
+  margin: 10px;
+  padding: 20px;
+  font-size: 15px;
+}
+.blue {
+    background-color: DodgerBlue;
+    color: White;
+}
+</style>
+<body>
+<script src="../static/js/form.js"></script>
+
+<div class="container">
+
+    <ul class="nav nav-tabs">
+        <li class="active"><a data-toggle="tab" href="#keyword">Keyword</a></li>
+        <li><a data-toggle="tab" href="#sendmessages">Messages</a></li>
+    </ul>
+
+
+    <div class="tab-content">
+        <div id="keyword" class="tab-pane fade in active">
+            <div class="flex-container">
+                <div>
+                    <form id="keyword_form">
+                        <h4>Keyword</h4><br>
+                        Keyword text:<br>
+                        <input type="text" name="keyword" value={{result['keyword']}}><br>
+                        Opt in Auto-Response:<br>
+                        <input type="text" name="cresponse" value={{result['cresponse']}}><br>
+                        Invalid Key Response:<br>
+                        <input type="text" name="iresponse" value={{result['iresponse']}}><br><br>
+                        <button id="save" class="blue">Send</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div id="sendmessages" class="tab-pane fade">
+            <div class="flex-container">
+                <div>
+                    <form id="blast_message">
+                        <h4>Blast (Entire Opt-In List)</h4><br>
+                        Message<br>
+                        <textarea name="blast_message_text"></textarea><br>
+                        <button id="send_blast" class="blue">Send</button>
+                    </form>
+                </div>
+                <div>
+                    <form id="individual_message">
+                         <h4>Individual Message</h4><br>
+                        Phone Number<br>
+                        <input type="text" name="individual_message_phonenumber"><br>
+                        Message:<br>
+                        <textarea name="individual_message_text"></textarea><br>
+                        <button id="send_individual" class="blue">Send</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+Twilio Phone Number: +19495180268
+
+</div>
+
+</body>
+</html>
