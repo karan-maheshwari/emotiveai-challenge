@@ -3,7 +3,7 @@ from flask import render_template
 from twilio.twiml.messaging_response import MessagingResponse
 from flask import request
 import db_operations
-import twilio
+import send_message
 
 app = Flask(__name__)
 
@@ -45,7 +45,7 @@ def send_individual_message():
 	message = request.form['individual_message_text']
 	print(number, message)
 	if db_operations.check_if_contact_is_registered(db, metadata, number):
-		twilio.send_message(number, message)
+		send_message.send_message(number, message)
 	return "ok"
 
 
@@ -54,7 +54,7 @@ def send_blast_message():
 	message = request.form['blast_message_text']
 	contacts = db_operations.get_all_contacts(db, metadata)
 	for contact in contacts:
-		twilio.send_message(contact[0], message)
+		send_message.send_message(contact[0], message)
 	return "ok"
 
 
